@@ -10,6 +10,15 @@ body {
 
 .title {
     font-family: 'Karla', sans-serif;
+
+    &--1{
+        font-size: 4rem;
+        margin: 0;
+    }
+
+    &--3{
+        font-size: 2rem;
+    }
 }
 
 .button_set {

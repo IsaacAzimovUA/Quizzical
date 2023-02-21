@@ -85,15 +85,15 @@ function App() {
       <div className="wrapper">
         {!isStarted ?
           <div className="start_menu">
-            <h1 className="title title__1">Quizzical</h1>
-            <h3 className="title title__3">Some description if needed</h3>
+            <h1 className="title title--1">Quizzical</h1>
+            <h3 className="title title--3">Some description if needed</h3>
             <button className="button button--control" onClick={() => setIsStarted(true)}>Start game</button>
           </div>
           :
           <>
             {questionElements}
             <div className="control-set">
-              {showCorrect && <h2 className="title title__2">You scored {countHoldAnswer()}/{newData.length} correct answers</h2>}
+              {showCorrect && <h2 className="title title--2">You scored {countHoldAnswer()}/{newData.length} correct answers</h2>}
               <button className="button button--control" onClick={() => showCorrectAnswer()}>{showCorrect ? "Start again" : "Show Answers"}</button>
             </div>
           </>
