@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Karla:wght@700&display=swap');
+
+html,
+body {
+    font-size: 11px;
+    color: #293264;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-family: 'Karla', sans-serif;
+}
+
+.button_set {
+    display: flex;
+    gap: 1.1rem;
+}
+
+.button {
+    border: 1px solid #4D5B9E;
+    background: none;
+    border-radius: 1rem;
+    color: #293264;
+    padding: 0.3rem 0.7rem;
+    font-family: 'Inter', sans-serif;
+
+    &--control {
+        background: #4D5B9E;
+        color: #fff;
+        padding: 1.45rem 2.5rem;
+        transition: .3s;
+    }
+
+    &:active {
+        transform: scale(1.05);
+        transition: .3s;
+    }
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    width: calc(100% - 3rem);
+    flex-direction: column;
+    display: flex;
+}
+
+.question {
+    padding: 1.45rem 0;
+    border-bottom: 1px solid #DBDEF0;
+}
+
+.start_menu {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.control-set {
+    margin: 2rem;
+    display: flex;
+    gap: 1.1rem;
+    align-items: center;
+    justify-content: center;
+}
