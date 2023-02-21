@@ -6,6 +6,7 @@ body {
     color: #293264;
     margin: 0;
     padding: 0;
+    
 }
 
 .title {
@@ -81,6 +82,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
 
 }
 
