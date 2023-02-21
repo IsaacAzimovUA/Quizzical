@@ -87,7 +87,7 @@ function App() {
         {!isStarted ?
           <div className="start_menu">
             <h1 className="title title--1">Quizzical</h1>
-            <h3 className="title title--3">Some description if needed</h3>
+            <h3 className="title title--3">Let's get started!</h3>
             <button className="button button--control" onClick={() => setIsStarted(true)}>Start game</button>
           </div>
           :
