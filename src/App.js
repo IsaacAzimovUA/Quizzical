@@ -94,8 +94,8 @@ function App() {
           <>
             {questionElements}
             {newData && <div className="control-set">
-              {showCorrect && <h2 className="title title--2">You scored {countHoldAnswer()}/{newData.length} correct answers</h2>}
-              <button className="button button--control" onClick={() => showCorrectAnswer()}>{showCorrect ? "Start again" : "Show Answers"}</button>
+              <h2 className="title title--2">You scored {countHoldAnswer()}/{newData.length} correct answers</h2>
+              {showCorrect && <button className="button button--control" onClick={() => showCorrectAnswer()}>{showCorrect ? "Start again" : "Show Answers"}</button>}
             </div>}
           </>
         }
