@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {decode} from 'html-entities';
 import "../style.scss"
 
 export default function Question(props) {
@@ -51,7 +52,7 @@ export default function Question(props) {
       key={e}
       onClick={() => handleCLick(e, index)}
       style={style(index)}
-    >{e.replace(/&quot;|&#039;|&eacute;|&ouml;|&ocirc;/g, "'")}</button>
+    >{decode(e)}</button>
   ))
 
   return (

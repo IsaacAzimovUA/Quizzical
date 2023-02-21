@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { nanoid } from 'nanoid'
 import Question from "./components/Question"
+import {decode} from 'html-entities';
 
 
 
@@ -24,7 +25,7 @@ function App() {
   }, [data]);
 
   function generateQuizElement(e) {
-    const question = e.question.replace(/&quot;|&#039;|&eacute;|&rsquo;|&ocirc;/g, "'");
+    const question = e.question;
     const correctAnswer = e.correct_answer;
     const incorrectAnswers = e.incorrect_answers;
     const allAnswers = [correctAnswer, ...incorrectAnswers].sort(
@@ -33,7 +34,7 @@ function App() {
 
     return {
       id: nanoid(),
-      question: question,
+      question: decode(question),
       correctAnswer: correctAnswer,
       allAnswers: allAnswers,
       answered: false,
