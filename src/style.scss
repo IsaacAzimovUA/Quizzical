@@ -23,11 +23,12 @@ body {
     border-radius: 1rem;
     color: #293264;
     padding: 0.3rem 0.7rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-family: 'Inter', sans-serif;
 
     @media (max-width: 420px) {
         height: 4.1rem;
+        min-width: 4.1rem;
         padding: 0 0.7rem;
     }
 
@@ -36,9 +37,11 @@ body {
         color: #fff;
         padding: 1.45rem 2.5rem;
         transition: .3s;
+        font-size: 1.3rem;
 
         @media (max-width: 420px) {
             height: 5.5rem;
+            min-width: 5.5rem;
             padding: 0 2.5rem;
         }
     }
