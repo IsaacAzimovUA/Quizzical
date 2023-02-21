@@ -15,7 +15,7 @@ body {
     }
 }
 
-#root, .main{
+#root, .main, .wrapper{
     height: inherit;
 }
 
@@ -78,7 +78,6 @@ body {
     width: calc(100% - 3rem);
     flex-direction: column;
     display: flex;
-    height: inherit;
 }
 
 .question {
