@@ -23,13 +23,24 @@ body {
     border-radius: 1rem;
     color: #293264;
     padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
     font-family: 'Inter', sans-serif;
+
+    @media (max-width: 420px) {
+        height: 4.1rem;
+        padding: 0 0.7rem;
+    }
 
     &--control {
         background: #4D5B9E;
         color: #fff;
         padding: 1.45rem 2.5rem;
         transition: .3s;
+
+        @media (max-width: 420px) {
+            height: 5.5rem;
+            padding: 0 2.5rem;
+        }
     }
 
     &:active {
