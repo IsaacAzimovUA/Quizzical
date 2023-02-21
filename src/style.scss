@@ -6,7 +6,10 @@ body {
     color: #293264;
     margin: 0;
     padding: 0;
-
+    // min-height: 100vh;
+    // min-height: -webkit-fill-available;
+    // height: -webkit-fill-available;
+    
     @media (max-width: 420px) {
         font-size: 11px;
     }
@@ -15,12 +18,12 @@ body {
 .title {
     font-family: 'Karla', sans-serif;
 
-    &--1{
+    &--1 {
         font-size: 4rem;
         margin: 0;
     }
 
-    &--3{
+    &--3 {
         font-size: 2rem;
     }
 }
@@ -63,7 +66,9 @@ body {
         transition: .3s;
     }
 }
-
+.main {
+    // height: 100vh;
+}
 .wrapper {
     max-width: fit-content;
     margin: 0 auto;
@@ -71,6 +76,7 @@ body {
     width: calc(100% - 3rem);
     flex-direction: column;
     display: flex;
+    height: 100vh;
 }
 
 .question {
