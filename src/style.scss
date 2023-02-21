@@ -2,11 +2,14 @@
 
 html,
 body {
-    font-size: 11px;
+    font-size: 13px;
     color: #293264;
     margin: 0;
     padding: 0;
-    
+
+    @media (max-width: 420px) {
+        font-size: 11px;
+    }
 }
 
 .title {
