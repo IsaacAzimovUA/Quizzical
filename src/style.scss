@@ -65,7 +65,7 @@ body {
 }
 
 .wrapper {
-    max-width: 800px;
+    max-width: fit-content;
     margin: 0 auto;
     width: 100%;
     width: calc(100% - 3rem);
@@ -74,12 +74,13 @@ body {
 }
 
 .question {
-    padding: 1.45rem 0;
+    padding: 1.4rem 0;
     border-bottom: 1px solid #DBDEF0;
 }
 
 .start_menu {
     margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,7 +92,7 @@ body {
 }
 
 .control-set {
-    margin: 2rem 0 3.2rem 0;
+    margin: 2rem 0 3rem 0;
     display: flex;
     gap: 1.1rem;
     align-items: center;
