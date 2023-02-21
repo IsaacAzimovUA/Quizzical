@@ -83,7 +83,7 @@ function App() {
 
   return (
     <div className="main">
-      <div className="wrapper">
+      <div className="wrapper">``
         {!isStarted ?
           <div className="start_menu">
             <h1 className="title title--1">Quizzical</h1>
@@ -93,10 +93,10 @@ function App() {
           :
           <>
             {questionElements}
-            <div className="control-set">
+            {newData && <div className="control-set">
               {showCorrect && <h2 className="title title--2">You scored {countHoldAnswer()}/{newData.length} correct answers</h2>}
               <button className="button button--control" onClick={() => showCorrectAnswer()}>{showCorrect ? "Start again" : "Show Answers"}</button>
-            </div>
+            </div>}
           </>
         }
       </div>
