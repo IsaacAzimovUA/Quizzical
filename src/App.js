@@ -91,6 +91,8 @@ function App() {
     }
   }
 
+  console.log(formData.number)
+
   const questionElements = newData.map((e) => (
     <Question
       key={e.id}
@@ -116,7 +118,7 @@ function App() {
               category={category}
               number={formData.number}
             />
-            <button className="button button--control" onClick={() => setIsStarted(true)}>Start game</button>
+            <button className="button button--control" onClick={() =>{formData.number !== "" && formData.number !== "0" && setIsStarted(true)}}>Start game</button>
           </div>
           :
           <div>
