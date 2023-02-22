@@ -35,8 +35,8 @@ export default function Form(props) {
                     id="number"
                     onChange={props.handleFormData}
                     name="number"
-                    placeholder="50"
-                    value={props.number}
+                    placeholder="Enter from 1 to 50"
+                    value={props.number > 50 ? 50 : props.number < 0 ? 1 : props.number}
                 />
             </div>
         </>

@@ -8,7 +8,6 @@ import Form from "./components/Form";
 
 function App() {
   const [data, setData] = useState([]);
-  console.log("🚀 ~ file: App.js:11 ~ App ~ data:", data)
   const [newData, setNewData] = useState([]);
   const [category, setCategory] = useState([])
 
