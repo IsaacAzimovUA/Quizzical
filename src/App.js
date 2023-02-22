@@ -91,13 +91,13 @@ function App() {
             <button className="button button--control" onClick={() => setIsStarted(true)}>Start game</button>
           </div>
           :
-          <>
+          <div>
             {questionElements}
             {newData.length > 0 && <div className="control-set">
               {showCorrect && <h2 className="title title--2">You scored {countHoldAnswer()}/{newData.length} correct answers</h2>}
               <button className="button button--control" onClick={() => showCorrectAnswer()}>{showCorrect ? "Start again" : "Show Answers"}</button>
             </div>}
-          </>
+          </div>
         }
       </div>
     </div>
