@@ -5,17 +5,30 @@ import { decode } from 'html-entities';
 
 function App() {
   const [data, setData] = useState([]);
-  console.log("🚀 ~ file: App.js:8 ~ App ~ data:", data)
   const [newData, setNewData] = useState([]);
+  const [category, setCategory] = useState([])
+
+  const [difficulty, setDifficulty] = useState("easy")
+  const [topic, setTopic] = useState(9)
+
   const [isStarted, setIsStarted] = useState(false);
   const [showCorrect, setShowCorrect] = useState(false)
 
   useEffect(() => {
-    const API_URL = `https://opentdb.com/api.php?amount=6&difficulty=${difficulty}`;
+    const API_CATEGORY = "https://opentdb.com/api_category.php"
+    fetch(API_CATEGORY)
+      .then((response) => response.json())
+      .then((category) => setCategory(category.trivia_categories));
+    const API_URL = `https://opentdb.com/api.php?amount=6&category=${topic}&difficulty=${difficulty}`;
     fetch(API_URL)
       .then((response) => response.json())
       .then((data) => setData(data.results));
   }, [isStarted])
+
+  
+  const categoryElement = category.map((e) => (
+    <option key={e.id} value={e.id}>{e.name}</option>
+  ))
 
   useEffect(() => {
     const updatedData = data.map((e) => generateQuizElement(e));
@@ -79,16 +92,13 @@ function App() {
     />
   ));
 
-  const [difficulty, setDifficulty] = useState("easy")
-  console.log("🚀 ~ file: App.js:85 ~ App ~ difficulty:", difficulty)
-
   return (
     <div className="main">
       <div className="wrapper">
         {!isStarted ?
           <div className="start_menu">
             <h1 className="title title--1">Quizzical</h1>
-            <h2 className="title title--2">Select difficulty!</h2>
+            <h2 className="title title--2">Let's get started!</h2>
             <div className="difficulty">
               <select className="difficulty__menu" id="difficulty"
                 onChange={(event) => { setDifficulty(event.target.value) }}
@@ -98,6 +108,14 @@ function App() {
                 <option value="hard">Hard</option>
               </select>
             </div>
+            <div className="difficulty">
+              <select className="difficulty__menu" id="difficulty"
+                onChange={(event) => { setTopic(event.target.value) }}
+                name="difficulty">
+                {categoryElement}
+              </select>
+            </div>
+
 
             <button className="button button--control" onClick={() => setIsStarted(true)}>Start game</button>
           </div>
