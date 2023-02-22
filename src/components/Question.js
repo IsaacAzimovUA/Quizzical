@@ -15,12 +15,6 @@ export default function Question(props) {
     }
   }
 
-  if (props.showAnswer) {
-    console.log("true")
-  } else {
-    console.log("fasle")
-  }
-
   function style(index) {
     let color
     let opacity
