@@ -9,7 +9,7 @@ body {
     height: 100vh;
     min-height: -webkit-fill-available;
     height: -webkit-fill-available;
-
+    box-sizing: border-box;
     @media (max-width: 420px) {
         font-size: 11px;
     }
@@ -94,7 +94,7 @@ body {
 
 }
 
-.difficulty {
+.form {
     position: relative;
 
     width: 100%;
@@ -119,7 +119,7 @@ body {
     }
 
 
-    &::after {
+    &:nth-of-type(-1n+2):after {
         content: "▼";
         color: #4D5B9E;
         font-size: 1rem;
@@ -128,6 +128,18 @@ body {
         right: 1rem;
         position: absolute;
     }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+  box-sizing: border-box;
 }
 
 .control-set {

@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react"
+
 import { nanoid } from 'nanoid'
-import Question from "./components/Question"
 import { decode } from 'html-entities';
+
+import Question from "./components/Question"
+import Form from "./components/Form";
 
 function App() {
   const [data, setData] = useState([]);
+  console.log("🚀 ~ file: App.js:11 ~ App ~ data:", data)
   const [newData, setNewData] = useState([]);
   const [category, setCategory] = useState([])
 
-  const [difficulty, setDifficulty] = useState("easy")
-  const [topic, setTopic] = useState(9)
+  const [formData, setFormData] = useState(
+    { difficulty: "", topic: "", number: ""}
+  )
 
   const [isStarted, setIsStarted] = useState(false);
   const [showCorrect, setShowCorrect] = useState(false)
@@ -19,18 +24,27 @@ function App() {
     fetch(API_CATEGORY)
       .then((response) => response.json())
       .then((category) => setCategory(category.trivia_categories));
-    const API_URL = `https://opentdb.com/api.php?amount=6&category=${topic}&difficulty=${difficulty}`;
+    const API_URL = `https://opentdb.com/api.php?amount=${formData.number}&category=${formData.topic}&difficulty=${formData.difficulty}`;
     fetch(API_URL)
       .then((response) => response.json())
       .then((data) => setData(data.results));
-  }, [])
+  }, [formData])
 
 
-  useEffect(() => { 
+  function handleFormData(event) {
+    setFormData(prev => {
+      return {
+        ...prev,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
+  useEffect(() => {
     const updatedData = data.map((e) => generateQuizElement(e));
     setNewData(updatedData);
 
-  }, [data]);
+  }, [isStarted]);
 
   function generateQuizElement(e) {
     const question = e.question;
@@ -78,10 +92,6 @@ function App() {
     }
   }
 
-  const categoryElement = category.map((e) => (
-    <option key={e.id} value={e.id}>{e.name}</option>
-  ))
-
   const questionElements = newData.map((e) => (
     <Question
       key={e.id}
@@ -96,28 +106,17 @@ function App() {
   return (
     <div className="main">
       <div className="wrapper">
-        {!isStarted && category.length >0 ?
+        {!isStarted && category.length ?
           <div className="start_menu">
             <h1 className="title title--1">Quizzical</h1>
             <h2 className="title title--2">Let's get started!</h2>
-            <div className="difficulty">
-              <select className="difficulty__menu" id="difficulty"
-                onChange={(event) => { setDifficulty(event.target.value) }}
-                name="difficulty">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-              </select>
-            </div>
-            <div className="difficulty">
-              <select className="difficulty__menu" id="difficulty"
-                onChange={(event) => { setTopic(event.target.value) }}
-                name="difficulty">
-                {categoryElement}
-              </select>
-            </div>
-
-
+            <Form
+              difficulty={formData.difficulty}
+              topic= {formData.topic}
+              handleFormData={handleFormData}
+              category={category}
+              number={formData.number}
+            />
             <button className="button button--control" onClick={() => setIsStarted(true)}>Start game</button>
           </div>
           :
