@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {decode} from 'html-entities';
 import "../style.scss"
 

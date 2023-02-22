@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { nanoid } from 'nanoid'
 import Question from "./components/Question"
 import { decode } from 'html-entities';
@@ -26,7 +26,7 @@ function App() {
   }, [])
 
 
-  useEffect(() => {
+  useEffect(() => { 
     const updatedData = data.map((e) => generateQuizElement(e));
     setNewData(updatedData);
 
@@ -92,14 +92,11 @@ function App() {
       showAnswer={showCorrect}
     />
   ));
-  // 
-
-
 
   return (
     <div className="main">
       <div className="wrapper">
-        {!isStarted ?
+        {!isStarted && category.length >0 ?
           <div className="start_menu">
             <h1 className="title title--1">Quizzical</h1>
             <h2 className="title title--2">Let's get started!</h2>
