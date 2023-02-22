@@ -23,16 +23,13 @@ function App() {
     fetch(API_URL)
       .then((response) => response.json())
       .then((data) => setData(data.results));
-  }, [isStarted])
+  }, [])
 
-  
-  const categoryElement = category.map((e) => (
-    <option key={e.id} value={e.id}>{e.name}</option>
-  ))
 
   useEffect(() => {
     const updatedData = data.map((e) => generateQuizElement(e));
     setNewData(updatedData);
+
   }, [data]);
 
   function generateQuizElement(e) {
@@ -81,6 +78,10 @@ function App() {
     }
   }
 
+  const categoryElement = category.map((e) => (
+    <option key={e.id} value={e.id}>{e.name}</option>
+  ))
+
   const questionElements = newData.map((e) => (
     <Question
       key={e.id}
@@ -91,6 +92,9 @@ function App() {
       showAnswer={showCorrect}
     />
   ));
+  // 
+
+
 
   return (
     <div className="main">
